@@ -2,11 +2,11 @@
 
 ## 3 Pillars
 - **UX for reviewing**
-  -[x]  UI for labeling preference and required words
+  -  UI for labeling preference and required words
       -  setting in the side menu where you can set with sliders
       -  make regex logic intuitive (for starters: and/or/not)
       -  in another tab, show the reason for a given paper rating that is being shown
-  -[ ]  Solve problem of no abstract
+  -  Solve problem of no abstract
       -  option to filter articles that don't have an abstract
       -  show embedded page given link
       -  if parsable website (ie. clinicaltrials.gov, parse and show the API payload)
