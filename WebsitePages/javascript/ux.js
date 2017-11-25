@@ -1,4 +1,6 @@
 
+
+
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
@@ -11,7 +13,7 @@ $("#menu-toggle").click(function(e) {
 
 // collapse abstracts
 $('.collapse').on('show.bs.collapse', function () {
-$('.collapse.in').collapse('hide');
+    $('.collapse.in').collapse('hide');
 });
 
 // Slider
