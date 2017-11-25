@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- jQuery library -->
+
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/index-css.css" rel="stylesheet">
+
+    
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Reference Handler
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="searchterms.html">Search terms</a>
+                </li>
+                <li>
+                    <a href="dummydata.html">Dummy data</a>
+                </li> 
+                <li>
+                    <a href="#">Import</a>
+                </li> 
+                <li>
+                    <a href="#">Export</a>
+                </li>              
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <!-- Navbar-->
+        <nav class="navbar navbar-light bg-faded">
+            <a class="navbar-brand" href="index.html" id="navlink">Reference Handler</a>
+        </nav>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid"> 
+                <h4>Search Terms</h4>
+
+                <table id="SearchTermTable" class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Search term</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody id="SearchTermTableBody">
+                        <tr class="item" id="new-term-template">
+                            <!-- searchterm1 -->
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="formGroupSearchTerm1" placeholder="Add search term">
+                                </div>
+                            </td>
+                            <!-- rating1 -->
+                            <td>
+                                <div id="slidecontainer">
+                                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Toggle Menu -->
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+
+                <!-- Get Form --> 
+                <a class="btn btn-secondary" id="display-form">get form output</a>
+
+                <!-- Add Search Term --> 
+                <a class="btn btn-secondary" id="add-search-term">Add search term</a>
+
+                <!-- Delete Search Term -->
+                <a class="btn btn-secondary" id="delete-search-term">Delete search term</a>
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    
+    // Add Search Term
+    $("#add-search-term").click(function(e){
+        var markup = "<tr class='item' id='new-term-template'><td><div class='form-group'><input type='text' class='form-control' id='formGroupSearchTerm1' placeholder='Add search term'></div></td><!-- rating1 --><td><div id='slidecontainer'><input type='range' min='1' max='100' value='50' class='slider' id='myRange'></div></td></tr>"
+        $("table tbody").append(markup);
+    });
+
+    $("#delete-search-term").click(function(e){
+        $("table tbody tr:last-child").fadeOut(function(){
+            $("table tbody tr:last-child").remove();
+        });
+
+    });
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    
+    // preferredWords
+    $("#display-form").click(function(e) {
+        var preferredWords = []
+        $("#SearchTermTable tr.item").each(function() {
+              keywords = $(this).find(".form-control").val()
+              rating = $(this).find(".slider").val()
+              /// ...
+              console.log(keywords);
+              console.log(rating);
+                preferredWords.push([keywords, rating])
+        });
+        alert(preferredWords)
+    });
+
+    // collapse abstracts
+    $('.collapse').on('show.bs.collapse', function () {
+    $('.collapse.in').collapse('hide');
+    });
+
+    // Slider
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    // output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+    </script>
+
+
+
+</body>
+
+</html>
