@@ -29,7 +29,6 @@ function sendToServer(data){
     $.post( "http://localhost:5000/upload", 
             input = JSON.stringify(data), 
             success=function( response ) {
-              // console.log(typeof(response));
               parsed_document = JSON.parse(response)
               // console.log(parsed_document.length + " papers parsed.")
               console.log(window.glob)
