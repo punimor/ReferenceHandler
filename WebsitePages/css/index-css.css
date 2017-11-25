@@ -7,6 +7,29 @@
 body {
   overflow-x: hidden;
 }
+.hiddenRow {
+    padding: 0 !important;
+}
+.unselected{
+  background-color: white;
+}
+.bad{
+  background-color: red;
+  color: white;
+}
+.unselected h5{
+  opacity: 0.8;
+  font-size: 12pt;
+}
+
+.selected{
+  background-color: #f4f7f9;
+}
+
+.selected h5{
+  opacity: 1;
+  font-size: 14pt;
+}
 
 /* navbar */
 .navbar{
