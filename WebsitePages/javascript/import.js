@@ -6,7 +6,7 @@ function accordian(thisObj){
     thisObj.addClass('selected');
 }
 
-function importFile() {
+window.onload = function() {
   var fileInput = document.getElementById('fileInput');
 
     fileInput.addEventListener('change', function(e) {
@@ -25,11 +25,15 @@ function importFile() {
       } else {
         alert("File not supported!")
       }
-    });
-}
 
-window.onload = function() {
-  importFile()
+      $("#wrapper").toggleClass("toggled");
+      $("table").removeClass('d-none');
+      $("#hometitle").removeClass('d-none');
+      $(".jumbotron").addClass('d-none');
+      $(".togglemenu1").removeClass('d-none');
+    });
+
+
 }
 
 
@@ -87,8 +91,9 @@ function display_papers(allpapers){
     /*----------------------------------
         Accordion Effect
     ----------------------------------*/
-    
+
     $("tr").click( function() { accordian($(this)) });
+
    
     /*----------------------------------
         Button Functionality

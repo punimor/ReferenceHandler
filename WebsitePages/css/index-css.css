@@ -8,6 +8,10 @@ body {
   overflow-x: hidden;
 }
 
+.jumbotron{
+  text-align: center;
+}
+
 .td_buttons .btn{
   max-width: 100px;
 }
