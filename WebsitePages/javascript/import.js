@@ -1,5 +1,5 @@
-window.onload = function() {
-    var fileInput = document.getElementById('fileInput');
+function importFile() {
+  var fileInput = document.getElementById('fileInput');
 
     fileInput.addEventListener('change', function(e) {
       var file = fileInput.files[0];
@@ -19,6 +19,12 @@ window.onload = function() {
       }
     });
 }
+
+window.onload = function() {
+  importFile()
+}
+
+
 
 paper = {"rating": 3.0, 
      "title" : "Cardiovascular safety of new drugs for diabetes: Getting the balance right?", 
@@ -47,14 +53,13 @@ function display_papers(allpapers){
       var rounded_rating = Math.round(parseFloat(allpapers[i]['rating']) * 10) / 10;
       var $tr = $("<tr>", {id: "foo", "class": "unselected", "data-toggle": 'collapse', "data-target": ".collapsingItem" + i});
       // var $td_rating = $("<td>", {id: "table-rating"}).text(rounded_rating); //<td><div class="rateYo"></div></td>
-      var $td_rating = $("<td>").append($("<div>", {class: "rateYo" + i}))
+      var $td_rating = $("<td>").append($("<div>", {id: "rateYo" + i}))
         $(function() {
-          $(".rateYo" + i).rateYo({
-          rating: rounded_rating
+          $("#rateYo" + i).rateYo({
+          rating: 4
           });
-
-          console.log(rating)
         });
+
       var $td_title_abstract = $("<td>", {id: "table-heading-abstract"})
       var $td_title = $("<h5>").text(allpapers[i]['title']);
       var $div_abstract = $("<div>", {id: "abstract" + i, "class": "collapse collapsingItem" + i}).text(allpapers[i]['abstract']);
@@ -73,7 +78,7 @@ function display_papers(allpapers){
       $tr.append($td_rating, $td_title_abstract, $td_buttons)
       $("table tbody").append($tr);
     }
-
+    
 
 
     $(function () { 
@@ -89,6 +94,7 @@ function display_papers(allpapers){
 
     $("tr").click(function(e){
         $("tbody").children().removeClass('selected');
+        $("tbody").find(".collapse").collapse('hide');
         $(this).addClass('selected');
     });
    
