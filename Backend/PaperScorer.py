@@ -8,11 +8,13 @@ class DesiredPhrase:
 
 
 class PaperScorer:
-    def __init__(self, papers, filename=""):        
+    def __init__(self, papers, filename="", prefered=""):        
         self.papers = papers
         if filename != "":
             with open(filename, "r") as f: #encoding='utf-8'
                 self.desired_phrase_pairs = [DesiredPhrase(float(line.split(",")[0]), [word.strip() for word in line.split(",")[1:]]) for line in f.readlines()]
+        else:
+            self.desired_phrase_pairs = [DesiredPhrase(float(line.split(",")[0]), [word.strip() for word in line.split(",")[1:]]) for line in prefered.split("\n")]
 
     def get_scored_papers(self):
         augmented_papers = []
@@ -33,5 +35,9 @@ class PaperScorer:
                     paper.sections["abstract"] = paper.sections["abstract"].replace(desired_phrase, "<span class="+divclass+">"+desired_phrase+"</span>")
                     paper.sections["title"] = paper.sections["title"].replace(desired_phrase, "<span class="+divclass+">"+desired_phrase+"</span>")
                 break
+        if score_sum < 0:
+            score_sum = 0
+        if score_sum > 5:
+            score_sum = 5
         paper.sections["rating"] = score_sum
         return paper

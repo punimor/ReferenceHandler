@@ -21,8 +21,7 @@
     <!-- Custom styles for this template -->
     <link href="css/index-css.css" rel="stylesheet">
 
-    
-
+    <!-- <script src="javaScript/import.js"></script> -->
 </head>
 
 <body>
@@ -72,7 +71,7 @@
                             <!-- rating1 -->
                             <td>
                                 <div id="slidecontainer">
-                                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                    <input type="range" min="-5" max="5" value="0" class="slider" id="myRange">
                                 </div>
                             </td>
                         </tr>
@@ -82,15 +81,14 @@
                 <!-- Toggle Menu -->
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
 
-                <!-- Get Form --> 
-                <a class="btn btn-secondary" id="display-form">get form output</a>
+                <!-- Add Search Term --> 
+                <a class="btn btn-secondary" id="submit-search">Submit search</a>
 
                 <!-- Add Search Term --> 
                 <a class="btn btn-secondary" id="add-search-term">Add search term</a>
 
                 <!-- Delete Search Term -->
                 <a class="btn btn-secondary" id="delete-search-term">Delete search term</a>
-
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -101,30 +99,22 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="javascript/searchterms.js"></script>
+    <script type="text/javascript">
+    function download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
 
-    <!-- Menu Toggle Script -->
-    <script>
-    
-    // Add Search Term
-    $("#add-search-term").click(function(e){
-        var markup = "<tr class='item' id='new-term-template'><td><div class='form-group'><input type='text' class='form-control' id='formGroupSearchTerm1' placeholder='Add search term'></div></td><!-- rating1 --><td><div id='slidecontainer'><input type='range' min='1' max='100' value='50' class='slider' id='myRange'></div></td></tr>"
-        $("table tbody").append(markup);
-    });
+        element.style.display = 'none';
+        document.body.appendChild(element);
 
-    $("#delete-search-term").click(function(e){
-        $("table tbody tr:last-child").fadeOut(function(){
-            $("table tbody tr:last-child").remove();
-        });
+        element.click();
 
-    });
+        document.body.removeChild(element);
+    }
 
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    
-    // preferredWords
-    $("#display-form").click(function(e) {
+    $("#submit-search").click(function(e) {
         var preferredWords = []
         $("#SearchTermTable tr.item").each(function() {
               keywords = $(this).find(".form-control").val()
@@ -132,29 +122,15 @@
               /// ...
               console.log(keywords);
               console.log(rating);
-                preferredWords.push([keywords, rating])
+              preferredWords.push([rating+","+keywords])
         });
-        alert(preferredWords)
+        var text = preferredWords.join("\n")
+        var filename = "preferences.txt";
+        download(filename, text);
     });
 
-    // collapse abstracts
-    $('.collapse').on('show.bs.collapse', function () {
-    $('.collapse.in').collapse('hide');
-    });
 
-    // Slider
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-    // output.innerHTML = slider.value; // Display the default slider value
-
-    // Update the current slider value (each time you drag the slider handle)
-    slider.oninput = function() {
-        output.innerHTML = this.value;
-    }
-    </script>
-
-
-
+</script>
 </body>
 
 </html>

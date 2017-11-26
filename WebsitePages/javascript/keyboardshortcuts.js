@@ -41,5 +41,11 @@ $(document).on("keypress", function (e) {
             default: return; // exit this handler for other keys
         }
         e.preventDefault(); // prevent the default action (scroll / move caret)
+        
+    if ($(".selected").index() > 2) { 
+        current_last = parseInt($("#global").attr("data-cur_i"));
+        $("table tbody").append(get_new_tr(allpapers, current_last + 1));
+        $("#global").attr("data-cur_i", current_last + 1);
+    }
 });
 

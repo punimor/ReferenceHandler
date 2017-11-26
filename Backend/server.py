@@ -16,7 +16,7 @@ def file_recieved():
     print(request)
     jdata = json.loads(strdata)
     document = DocumentParser(jdata)
-    rate_words = PaperScorer(document.papers, filename="desired_scores.txt")
+    rate_words = PaperScorer(document.papers, filename="/Users/josiahcoad/Downloads/preferences.txt")
 
 
     resp = flask.Response()
