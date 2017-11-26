@@ -13,7 +13,7 @@
 
     <title>Simple Sidebar - Start Bootstrap Template</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,10 @@
     <link href="css/index-css.css" rel="stylesheet">
 
     <script src="javascript/import.js"></script>
+
+    <!-- rating stars csss-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    
 
 </head>
 
@@ -73,8 +77,8 @@
                     </thead>
                     <tbody>
                         <tr data-toggle="collapse" data-target="#abstract">
-                            <td></td>
-                            <td>Cardiovascular safety of new drugs for diabetes: Getting the balance right?
+                            <td><div class="rateYo"></div></td>
+                            <td> Title bla bla
                             <div id="abstract" class="collapse">
                             BACKGROUND: Skin autofluorescence is a non-invasive measurement of advanced glycation end products (AGE), which are suggested to be one of the major agents in the pathogenesis and progression of diabetes related cardiovascular complications. Recently, low vitamin D status has been linked to the progression of type 2 diabetes mellitus (T2DM) and cardiovascular disease. The aim of this study is to investigate the association between vitamin D status and skin autofluorescence in patients with T2DM.
                             METHODS: In this preliminary report skin autofluorescence was measured non-invasively with an AGE-reader in 245 patients with T2DM treated with lifestyle advice, metformin and/or sulphonylurea-derivatives. All patients were randomly assigned to receive either vitamin D 50,000 IU/month or placebo for 6 months.
@@ -85,7 +89,7 @@
                             <td>Include</td>
                         </tr>
                         <tr data-toggle="collapse" data-target="#abstract2">
-                            <td>2.0</td>
+                            <td><div class="rateYo"></div></td>
                             <td>Effect of exogenously administered glucagon versus spontaneous endogenous counter-regulation on glycaemic recovery from insulin-induced hypoglycaemia in patients with type 2 diabetes treated with a novel glucokinase activator, AZD1656, and metformin
                             <div id="abstract2" class="collapse">
                             BACKGROUND: Besides the classical role of vitamin D on calcium and bone homeostasis, vitamin D deficiency has recently been identified as a contributing factor in the onset of insulin resistance in type 2 diabetes mellitus. However, it is uncertain whether vitamin D deficiency and poor glycaemic control are causally interrelated or that they constitute two independent features of type 2 diabetes mellitus. There are limited clinical trials carried out which measured the effect of vitamin D supplementation on glycaemic control.The objective of this study is to investigate the effect of vitamin D supplementation on glycaemic control and quality of life in patients with type 2 diabetes mellitus.
@@ -97,7 +101,7 @@
                             <td>Include</td>
                         </tr>
                         <tr data-toggle="collapse" data-target="#abstract3">
-                            <td>1.0</td>
+                            <td><div class="rateYo"></div></td>
                             <td>Diabetic ketosis during hyperglycemic crisis is associated with decreased all-cause mortality in patients with type 2 diabetes mellitus
                             <div id="abstract3" class="collapse">Patients with type 2 diabetes mellitus have impaired ketogenesis due to high serum insulin and low growth hormone levels. Evidence exists that ketone bodies might improve kidney and cardiac function. In theory, improved ketogenesis in diabetics may have positive effects. We aimed to assess the impact of diabetic ketosis on all-cause mortality in patients with type 2 diabetes mellitus presenting with hyperglycemic crisis. We analyzed 486 patients with diabetic ketosis and 486 age and sex-matched patients with non-ketotic hyperglycemia presenting to the emergency department. Cox proportional hazard models were used to analyze the link between patient characteristics and mortality. During an observation time of 33.4 months, death of any cause occurred in 40.9% of the non-ketotic hyperglycemia group and 30.2% of the DK group (hazard ratio in the diabetic ketosis group, 0.63; 95% confidence interval 0.48-0.82; P=0.0005). Patients with diabetic ketosis had a lower incidence of symptomatic heart failure and had improved renal function. They used less furosemide and antihypertensive drugs, more metformin and lower insulin doses, all of which was independently associated with decreased mortality. Plasma glucose and glycated hemoglobin levels were similar in both groups. Patients with hyperglycemic crisis and diabetic ketosis have decreased all-cause mortality when compared to those with non-ketotic hyperglycemia. diabetic ketosis might be a compensatory mechanism rather than a complication in patients with hyperglycemic crises, but further prospective studies are warranted.
                             </div>
@@ -105,7 +109,7 @@
                             <td>Include</td>
                         </tr>
                         <tr data-toggle="collapse" data-target="#abstract4">
-                            <td>0.5</td>
+                            <td><div class="rateYo"></div></td>
                             <td>Vitamin D status is associated with skin autofluorescence in patients with type 2 diabetes mellitus: a preliminary report
                             <div id="abstract4" class="collapse">BACKGROUND: Skin autofluorescence is a non-invasive measurement of advanced glycation end products (AGE), which are suggested to be one of the major agents in the pathogenesis and progression of diabetes related cardiovascular complications. Recently, low vitamin D status has been linked to the progression of type 2 diabetes mellitus (T2DM) and cardiovascular disease. The aim of this study is to investigate the association between vitamin D status and skin autofluorescence in patients with T2DM.
                             METHODS: In this preliminary report skin autofluorescence was measured non-invasively with an AGE-reader in 245 patients with T2DM treated with lifestyle advice, metformin and/or sulphonylurea-derivatives. All patients were randomly assigned to receive either vitamin D 50,000 IU/month or placebo for 6 months.
@@ -131,6 +135,19 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="javascript/ux.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 </body>
+<script>
+$(function () {
+ 
+    $(".rateYo").rateYo({
+    rating: 3.6
+    });
+
+    // Setter
+    $(".rateYo").rateYo("option", "starWidth", "20px"); //returns a jQuery Element
+});
+</script>
 
 </html>

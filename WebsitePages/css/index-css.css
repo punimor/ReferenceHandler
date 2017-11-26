@@ -13,13 +13,14 @@ body {
 .unselected{
   background-color: white;
 }
-.bad_words{
+.bad_word{
   background-color: red;
   color: white;
 }
 
-.good_words{
-  
+.good_word{
+  background-color: green;
+  color: white;
 }
 .unselected h5{
   opacity: 0.8;
