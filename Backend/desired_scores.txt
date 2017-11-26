@@ -1,0 +1,25 @@
+0.5, objective, objectives, aim, aims, method, methods, material, materials, setting, result, results, conclusion, conclusions
+0.5, week, weeks, wk, wks, year, years, yr, yrs
+0.3, 52 weeks, 52-week, week 52, 52 wks, wk 52
+0.3, 104 weeks, 104-week, week 104, 104 wks, wk 104
+0.6, parallel, parallel design, parallel group
+0.9, metformin alone, MET alone, metformin group, MET group, metformin-group, MET-group
+-1, nonrandomized, non-randomized, non randomized
+-1, rabbits, rabbit, mice, mouse, rat, rats
+-0.5, child, children, adolescent, adolescents
+-0.8, T1DM
+-0.8, non-diabetic, nondiabetic, non diabetic
+-0.8, healthy controls, healthy, healthy volunteers, healthy subjects, 
+-0.7, retrospective
+-0.7, observational
+-0.7, cohort, cohort study
+-0.7, case-control, case control
+-0.7, case report
+-0.7, cross sectional, cross-sectional
+-0.7, ecological study
+-0.3, database, databases
+-0.8, systematic review, meta-analysis, meta analysis
+-0.6, cell, cells
+-1, inadequately controlled with metformin
+-1, add-on
+-1, combination with metformin
