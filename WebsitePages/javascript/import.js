@@ -1,3 +1,11 @@
+function accordian(thisObj){
+    $("tbody").children().removeClass('selected');
+    $("tbody").children().addClass('unselected');
+    $("tbody").find(".collapse").collapse('hide');
+    thisObj.removeClass('unselected');
+    thisObj.addClass('selected');
+}
+
 function importFile() {
   var fileInput = document.getElementById('fileInput');
 
@@ -51,14 +59,11 @@ function display_papers(allpapers){
     var i;
     for (var i=0; i<Math.min(5, allpapers.length); i++) {
       var rounded_rating = Math.round(parseFloat(allpapers[i]['rating']) * 10) / 10;
-      var $tr = $("<tr>", {id: "foo", "class": "unselected", "data-toggle": 'collapse', "data-target": ".collapsingItem" + i});
+
+      var $tr = $("<tr>", {id: "foo", "class": "unselected", "data-toggle": 'collapse', "data-index": i, "data-target": ".collapsingItem" + i});
       // var $td_rating = $("<td>", {id: "table-rating"}).text(rounded_rating); //<td><div class="rateYo"></div></td>
-      var $td_rating = $("<td>").append($("<div>", {id: "rateYo" + i}))
-        $(function() {
-          $("#rateYo" + i).rateYo({
-          rating: 4
-          });
-        });
+      var $stars = $("<div>", {id: "rateYo" + i}).rateYo({ rating: i }).rateYo("option", "starWidth", "20px");
+      var $td_rating = $("<td>").append($stars);
 
       var $td_title_abstract = $("<td>", {id: "table-heading-abstract"})
       var $td_title = $("<h5>").text(allpapers[i]['title']);
@@ -78,25 +83,12 @@ function display_papers(allpapers){
       $tr.append($td_rating, $td_title_abstract, $td_buttons)
       $("table tbody").append($tr);
     }
-    
-
-
-    $(function () { 
-      // Setter
-      $(".rateYo").rateYo("option", "starWidth", "20px"); //returns a jQuery Element
-    });
-
-
 
     /*----------------------------------
         Accordion Effect
     ----------------------------------*/
-
-    $("tr").click(function(e){
-        $("tbody").children().removeClass('selected');
-        $("tbody").find(".collapse").collapse('hide');
-        $(this).addClass('selected');
-    });
+    
+    $("tr").click( function() { accordian($(this)) });
    
     /*----------------------------------
         Button Functionality

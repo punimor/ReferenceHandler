@@ -23,9 +23,23 @@ $(document).on("keypress", function (e) {
             break;
 
             case 106: // j pressed
-                importFile();
+                if ($(".selected").prev().length != 0){
+                    accordian($(".selected").prev())
+                }                    
             break;
 
-    }
+            case 107: // j pressed
+                if ($(".selected").next().length != 0){
+                    accordian($(".selected").next())
+                }
+            break;
+
+            case 32: // j pressed
+                // $(".selected").collapse('show');
+            break;
+
+            default: return; // exit this handler for other keys
+        }
+        e.preventDefault(); // prevent the default action (scroll / move caret)
 });
 
