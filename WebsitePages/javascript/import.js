@@ -46,13 +46,21 @@ function display_papers(allpapers){
     for (var i=0; i<Math.min(5, allpapers.length); i++) {
       var rounded_rating = Math.round(parseFloat(allpapers[i]['rating']) * 10) / 10;
       var $tr = $("<tr>", {id: "foo", "class": "unselected", "data-toggle": 'collapse', "data-target": ".collapsingItem" + i});
-      var $td_rating = $("<td>", {id: "table-rating"}).text(rounded_rating); //<td><div class="rateYo"></div></td>
+      // var $td_rating = $("<td>", {id: "table-rating"}).text(rounded_rating); //<td><div class="rateYo"></div></td>
+      var $td_rating = $("<td>").append($("<div>", {class: "rateYo" + i}))
+        $(function() {
+          $(".rateYo" + i).rateYo({
+          rating: rounded_rating
+          });
+
+          console.log(rating)
+        });
       var $td_title_abstract = $("<td>", {id: "table-heading-abstract"})
       var $td_title = $("<h5>").text(allpapers[i]['title']);
       var $div_abstract = $("<div>", {id: "abstract" + i, "class": "collapse collapsingItem" + i}).text(allpapers[i]['abstract']);
       $td_title_abstract.append($td_title, $div_abstract)
 
-      var $td_buttons = $("<td>")
+      var $td_buttons = $("<td>", {class: "td_buttons"})
       var $decisionbutton = $("<button>", {id: "decisionbutton" + i, type:"button", class:"btn btn-outline-secondary btn-block undecide decisionbutt"})
 
       var $optionbuttonsdiv = $("<div>", {id:"buttons" + i, class:"collapse collapsingItem"+i})
@@ -65,6 +73,15 @@ function display_papers(allpapers){
       $tr.append($td_rating, $td_title_abstract, $td_buttons)
       $("table tbody").append($tr);
     }
+
+
+
+    $(function () { 
+      // Setter
+      $(".rateYo").rateYo("option", "starWidth", "20px"); //returns a jQuery Element
+    });
+
+
 
     /*----------------------------------
         Accordion Effect
