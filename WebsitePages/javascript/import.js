@@ -40,7 +40,7 @@ function sendToServer(data){
 function display_papers(allpapers){
     var i;
     for (i in allpapers) {
-        var markup = "<tr class='unselected' data-toggle='collapse' data-target='#abstract" + String(i) + "'><td id ='table-rating'>" + Math.round(parseFloat(allpapers[i]['rating']) * 10) / 10 + "</td><td><h5>" + allpapers[i]['title'] + "</h5><div id='abstract" + String(i) + "' class='collapse'>" + allpapers[i]['abstract'] + "</div></td><td>" + allpapers[i]['decision'] + "</td></tr>"
+        var markup = "<tr class='unselected' data-toggle='collapse' data-target='.collapsingItem" + String(i) + "'><td id ='table-rating'>" + Math.round(parseFloat(allpapers[i]['rating']) * 10) / 10 + "</td><td><h5>" + allpapers[i]['title'] + "</h5><div class='collapse collapsingItem" + String(i) + "'>" + allpapers[i]['abstract'] + "</div></td><td><button type='button' class='btn btn-success'>Include</button><div class='collapse collapsingItem" + String(i) + "'><button type='button' class='btn btn-outline-success'>Include</button><button type='button' class='btn btn-outline-info'>Maybe</button><button type='button' class='btn btn-outline-danger'>Exclude</button></div></td></tr>"
         $("table tbody").append(markup);
     }
     $("tr").click(function(e){
