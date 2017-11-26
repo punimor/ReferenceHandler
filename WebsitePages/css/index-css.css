@@ -7,9 +7,26 @@
 body {
   overflow-x: hidden;
 }
-.hiddenRow {
-    padding: 0 !important;
+
+.undecide:before{
+  content: "Undecided";
 }
+
+.include:before {
+  content: "Included";
+}
+
+.maybe:before{
+  content: "Maybe";
+}
+
+.exclude:before{
+  content: "Exclude";
+}
+.button-adjust{
+  margin-top: 20%;
+}
+
 .unselected{
   background-color: white;
 }
