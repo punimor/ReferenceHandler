@@ -1,0 +1,8 @@
+BUGS
+    - how to replicate: press k when the last article is already selected. you get 'Uncaught ReferenceError: allpapers is not defined'
+ 
+TODO
+    - first article should already be selected when new file loaded
+    - post coding and commenting standards
+    - mid-high level architecture
+

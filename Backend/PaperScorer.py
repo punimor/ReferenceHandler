@@ -39,5 +39,5 @@ class PaperScorer:
             score_sum = 0
         if score_sum > 5:
             score_sum = 5
-        paper.sections["rating"] = score_sum
+        paper.sections["rating"] = round(score_sum, 2)
         return paper

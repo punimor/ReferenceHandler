@@ -1,11 +1,10 @@
 $(document).on("keypress", function (e) {
-    console.log(e.which);
         switch(e.which){
-            case 116: // t pressed
+            case 116: // t pressed - open side menu
                 $("#wrapper").toggleClass("toggled");
             break;
 
-            case 105: // i pressed
+            case 105: // i pressed - choose include for currently selected aritcle
                 $("tbody .selected").find(".decisionbutt").removeClass().addClass("btn btn-success btn-block include decisionbutt");
                 
                 if ($(".selected").next().length != 0){
@@ -13,7 +12,7 @@ $(document).on("keypress", function (e) {
                 }
             break;
 
-            case 109: // m pressed
+            case 109: // m pressed - choose maybe for currently selected aritcle
                 $("tbody .selected").find(".decisionbutt").removeClass().addClass("btn btn-info btn-block maybe decisionbutt");
                 
                 if ($(".selected").next().length != 0){
@@ -21,7 +20,7 @@ $(document).on("keypress", function (e) {
                 }
             break;
 
-            case 101: // e pressed
+            case 101: // e pressed - choose exclude for currently selected aritcle
                 $("tbody .selected").find(".decisionbutt").removeClass().addClass("btn btn-danger btn-block exclude decisionbutt");
 
                 if ($(".selected").next().length != 0){
@@ -29,29 +28,21 @@ $(document).on("keypress", function (e) {
                 }
             break;
 
-            case 106: // j pressed
+            case 106: // j pressed - select previous article
                 if ($(".selected").prev().length != 0){
                     accordian($(".selected").prev())
                 }                    
             break;
 
-            case 107: // k pressed
+            case 107: // k pressed - select next article
                 if ($(".selected").next().length != 0){
                     accordian($(".selected").next())
                 }
             break;
 
-            case 32: // j pressed
-                // $(".selected").collapse('show');
-            break;
-
-            default: return; // exit this handler for other keys
+            // exit this handler for other keys
+            default: return; 
         }
-        e.preventDefault(); // prevent the default action (scroll / move caret)
-        
-    if ($(".selected").index() > 2) { 
-        current_last = parseInt($("#global").attr("data-cur_i"));
-        $("table tbody").append(get_new_tr(allpapers, current_last + 1));
-        $("#global").attr("data-cur_i", current_last + 1);
-    }
+        // prevent the default action (scroll / move caret)
+        e.preventDefault(); 
 });
