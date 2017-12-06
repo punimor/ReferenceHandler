@@ -72,4 +72,3 @@ $(document).on("keypress", function (e) {
         $("#global").attr("data-cur_i", current_last + 1);
     }
 });
-
