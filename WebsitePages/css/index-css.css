@@ -8,8 +8,29 @@ body {
   overflow-x: hidden;
 }
 
+#logo{
+  width: 30px;
+}
+.jumbotron{
+  background-image: url("https://i.ytimg.com/vi/njFz8UTGCTA/maxresdefault.jpg")
+}
+#poweredby{
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#oxfordhack {
+  text-align: right;
+  color: white;
+}
+
+.jumbotron{
+  text-align: center;
+}
+
 .td_buttons .btn{
-  max-width: 100px;
+  max-width: 120px;
 }
 
 .undecide:before{
