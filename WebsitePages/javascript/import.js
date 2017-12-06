@@ -4,8 +4,7 @@ function accordian(thisObj){
     $("tbody").find(".collapse").collapse('hide');
     thisObj.removeClass('unselected');
     thisObj.addClass('selected');
-    // thisObj.find(".collapse").collapse('show');
-    console.log("acc ran");
+    thisObj.find(".collapse").collapse('show');
 }
 
 window.onload = function() {
