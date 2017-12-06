@@ -48,6 +48,7 @@ body {
 .exclude:before{
   content: "Exclude";
 }
+
 .button-adjust{
   margin-top: 20%;
 }
