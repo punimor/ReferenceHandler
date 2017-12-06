@@ -87,13 +87,11 @@ function get_new_tr(allpapers, i){
 }
 
 
-function display_papers(allpapers){
-    var cur_i;
-    for (cur_i=0; cur_i<Math.min(5, allpapers.length); cur_i++) {
-      $("table tbody").append(get_new_tr(allpapers, cur_i));
+function display_papers(allpapers) {
+  
+    for (var i=0; i<Math.min(5, allpapers.length); i++) {
+        $("table tbody").append(get_new_tr(allpapers, i));
     }
-    $("#global").attr("data-cur_i", cur_i)
-    } 
 
     /*----------------------------------
         Accordion Effect
@@ -120,3 +118,4 @@ function display_papers(allpapers){
         $(this).parent().parent().find(".decisionbutt").removeClass().addClass("btn btn-danger btn-block exclude decisionbutt");
         // $("#decisionbutton1").removeClass().addClass("btn btn-danger exclude");
     }); 
+};
