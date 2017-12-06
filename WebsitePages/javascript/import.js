@@ -7,6 +7,17 @@ function accordian(thisObj){
     thisObj.find(".collapse").collapse('show');
 }
 
+function change_decision(e, new_class){
+    CLASSES_COMMON = "btn btn-block decisionbutt"
+    CLASSES_FOR_INCLUDE = "btn-success include"
+    CLASSES_FOR_EXCLUDE = "btn-danger exclude"
+    CLASSES_FOR_MAYBE = "btn btn-info maybe"
+    // switch($(this).class()){
+    //         case "include": // t pressed
+    //           $(this).parent().parent().find(".decisionbutt").removeClass().addClass(CLASSES_COMMON + " " + CLASSES_FOR_MAYBE);
+}
+
+// Add a upload file button
 window.onload = function() {
   var fileInput = document.getElementById('fileInput');
 
@@ -27,6 +38,7 @@ window.onload = function() {
         alert("File not supported!")
       }
 
+      // I think this is for collapsing the side menu
       $("#wrapper").toggleClass("toggled");
       $("table").removeClass('d-none');
       $("#hometitle").removeClass('d-none');
@@ -47,48 +59,84 @@ allpapers = [paper,paper,paper,paper]
 */
 
 function sendToServer(data){
+    var server_endpoint = "http://localhost:5000/upload"
     var allpapers;
-    $.post( "http://localhost:5000/upload", 
+    $.post(server_endpoint, 
             input = JSON.stringify(data), 
             success=function( response ) {
               parsed_document = JSON.parse(response)
-              console.log(parsed_document)
               display_papers(parsed_document)
             }); 
-      // display_papers(dummypapers);
 }
 
+/*
+DESCRIPTION
+  - build a column of 4 buttons, the one on top (non-operational) displays the current decision. The 3 buttons below it give the options for a new decision. 
+PARAMETERS
+RETURNS
+  - (jquery object) a column populated with the four buttons
+TODO
+  - the current decision button should be taken from a property of the paper object (ie allpapers[i]['decision'])
+  - the 
+*/
+function get_decision_buttons_column(){
+    // create a new column for the buttons 
+    var $td_buttons = $("<td>", {class: "td_buttons"})
+
+    // create a decision button that will be non-operational (no action on click), just shows the current decision
+    var $decisionbutton = $("<button>", {id: "decisionbutton", type:"button", class:"btn btn-outline-secondary btn-block undecide decisionbutt"})
+
+    // create 3 operational buttons for choosing a new decision
+    var $optionbuttonsdiv = $("<div>", {id:"buttons", class:"collapse collapsingItem"})
+    var $include_button = $("<button>", {type: "button", class:"btn btn-outline-success btn-block button-adjust include"})
+    var $maybe_button = $("<button>", {type: "button", class:"btn btn-outline-info btn-block button-adjust maybe"})
+    var $exclude_button = $("<button>", {type: "button", class:"btn btn-outline-danger btn-block button-adjust exclude"})
+    $optionbuttonsdiv.append($include_button, $maybe_button, $exclude_button)
+    $td_buttons.append($decisionbutton, $optionbuttonsdiv)
+
+    return $td_buttons
+}
+
+
+/*
+DESCRIPTION
+  - build a new table row containing the title, abstract and buttons for a paper in allpapers indexed by i
+PARAMETERS
+  - allpapers (list of paper objects): a list of papers for screening
+  - i (int): the index of the paper (in allpapers) to build a new table row for
+RETURNS
+  - (jquery object) the table row representing allpapers[i]
+TODO
+  - figure out why "data-target": ".collapsingItem" + i is neccessary
+*/
 function get_new_tr(allpapers, i){
-      var rounded_rating = Math.round(parseFloat(allpapers[i]['rating']) * 10) / 10;
+    // build the table row and add the stars to the first column in the row
+    var $tr = $("<tr>", {id: "foo", "class": "unselected", "data-toggle": 'collapse', "data-index": i, "data-target": ".collapsingItem" + i});
+    var $stars = $("<div>", {class: "rateYo"}).rateYo({ rating: allpapers[i]["rating"] }).rateYo("option", "starWidth", "20px");
+    var $td_rating = $("<td>").append($stars);
 
-      var $tr = $("<tr>", {id: "foo", "class": "unselected", "data-toggle": 'collapse', "data-index": i, "data-target": ".collapsingItem" + i});
-      // var $td_rating = $("<td>", {id: "table-rating"}).text(rounded_rating); //<td><div class="rateYo"></div></td>
-      var $stars = $("<div>", {id: "rateYo" + i}).rateYo({ rating: rounded_rating }).rateYo("option", "starWidth", "20px");
-      var $td_rating = $("<td>").append($stars);
+    // build the title and abstract and add them to the second column in the row
+    var $td_title_abstract = $("<td>", {id: "table-heading-abstract"})
 
-      var $td_title_abstract = $("<td>", {id: "table-heading-abstract"})
-      var td_title = "<h5>"+allpapers[i]['title'] + "</h5>";
-      var div_abstract = "<div id='abstract" + i + "' class='collapse collapsingItem" + i + "'>" + allpapers[i]['abstract'] + "</div>"
-      $td_title_abstract.append(td_title, div_abstract)
+    // title and abstract have to be built by string concatenation because the text color highlighting will not be tampered with this way 
+    // (as opposed to trying to build the title and abstract using jquery functions)
+    var td_title = "<h5>" + allpapers[i]['title'] + "</h5>";
+    var div_abstract = "<div class='collapse collapsingItem'>" + allpapers[i]['abstract'] + "</div>"
+    $td_title_abstract.append(td_title, div_abstract)
 
-      var $td_buttons = $("<td>", {class: "td_buttons"})
-      var $decisionbutton = $("<button>", {id: "decisionbutton" + i, type:"button", class:"btn btn-outline-secondary btn-block undecide decisionbutt"})
+    // build the buttons for the decision in the third column in the row
+    var $td_buttons = get_decision_buttons_column()
 
-      var $optionbuttonsdiv = $("<div>", {id:"buttons" + i, class:"collapse collapsingItem"+i})
-      var $button1 = $("<button>", {type: "button", class:"btn btn-outline-success btn-block button-adjust include"})
-      var $button2 = $("<button>", {type: "button", class:"btn btn-outline-info btn-block button-adjust maybe"})
-      var $button3 = $("<button>", {type: "button", class:"btn btn-outline-danger btn-block button-adjust exclude"})
-      $optionbuttonsdiv.append($button1, $button2, $button3)
-      $td_buttons.append($decisionbutton, $optionbuttonsdiv)
+    // add all columns to the row
+    $tr.append($td_rating, $td_title_abstract, $td_buttons) 
 
-      $tr.append($td_rating, $td_title_abstract, $td_buttons) 
-
-      return $tr
+    // return the row
+    return $tr
 }
 
 
 function display_papers(allpapers) {
-  
+
     for (var i=0; i<Math.min(5, allpapers.length); i++) {
         $("table tbody").append(get_new_tr(allpapers, i));
     }
@@ -106,16 +154,13 @@ function display_papers(allpapers) {
 
     $(".include").click(function(e){
         $(this).parent().parent().find(".decisionbutt").removeClass().addClass("btn btn-success btn-block include decisionbutt");
-        // $("#decisionbutton1").removeClass().addClass("btn btn-success include");
     });
 
     $(".maybe").click(function(e){
         $(this).parent().parent().find(".decisionbutt").removeClass().addClass("btn btn-info btn-block maybe decisionbutt");
-        // $("#decisionbutton1").removeClass().addClass("btn btn-info maybe");
     });
 
     $(".exclude").click(function(e){
         $(this).parent().parent().find(".decisionbutt").removeClass().addClass("btn btn-danger btn-block exclude decisionbutt");
-        // $("#decisionbutton1").removeClass().addClass("btn btn-danger exclude");
     }); 
 };
