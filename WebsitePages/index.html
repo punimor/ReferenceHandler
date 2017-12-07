@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- jQuery library -->
-
-
-
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Simple Sidebar - Start Bootstrap Template</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles -->
     <link href="css/index-css.css" rel="stylesheet">
 
-    <!-- rating stars csss-->
+    <!-- rating stars CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
 
-    <script src="javascript/import.js"></script>
+    <!-- custom javascript -->
+    <script src="javascript/paper_table_builder.js"></script>
 
-    <script src="javascript/keyboardshortcuts.js"></script>
+    <script src="javascript/file_importer.js"></script>
+
+    <script src="javascript/keyboard_shortcuts.js"></script>
 
 </head>
 
@@ -94,19 +89,13 @@
             </div>
         </div>
     </div>
-    <!-- /#wrapper -->
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+    <!-- Component Analyzer functions like menu toggle -->
+    <script src="javascript/component_animater.js"></script>
 </body>
 </html>
