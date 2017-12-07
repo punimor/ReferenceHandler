@@ -1,6 +1,6 @@
 BUGS
     - how to replicate: press k when the last article is already selected. you get 'Uncaught ReferenceError: allpapers is not defined'
- 
+   
 TODO
     - first article should already be selected when new file loaded
     - post coding and commenting standards
@@ -9,6 +9,11 @@ TODO
     - impliment namespaces (https://addyosmani.com/blog/essential-js-namespacing/)
     - impliment proper use of const and var
     - make a coding standards doc
+    - The current decision button should be taken from a property of the paper object (ie allpapers[i]['decision']). 
+    - Figure out why "data-target": ".collapsingItem" + i is neccessary in the function getNewTableRow
+    - finish the jsdoc for all javascript documents
+    - Enforce indentation, naming conventions and semicolon standards
+
     
 
 

@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: paper_table_builder.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: paper_table_builder.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * @file Builds the table for displaying the current 
  * @author Josiah Coad and Filip Gnesin
 */
@@ -59,18 +87,18 @@ function changeDecisionButton(new_decision){
 */
 function getDecisionButtonsColumn(){
     // create a new column for the buttons 
-    var $td_buttons = $("<td>", {class: "td_buttons"})
+    var $td_buttons = $("&lt;td>", {class: "td_buttons"})
 
     // create a decision button that will be non-operational (no action on click), just shows the current decision
-    var $decisionbutton = $("<button>", {id: "decisionbutton", type:"button", class:"btn btn-outline-secondary btn-block undecide decisionbutt"})
+    var $decisionbutton = $("&lt;button>", {id: "decisionbutton", type:"button", class:"btn btn-outline-secondary btn-block undecide decisionbutt"})
 
     // create 3 operational buttons for choosing a new decision
-    var $include_button = $("<button>", {type: "button", class:"btn btn-outline-success btn-block button-adjust include"}).click(function() {changeDecisionButton("include")})
-    var $maybe_button = $("<button>", {type: "button", class:"btn btn-outline-info btn-block button-adjust maybe"}).click(function() {changeDecisionButton("maybe")})
-    var $exclude_button = $("<button>", {type: "button", class:"btn btn-outline-danger btn-block button-adjust exclude"}).click( function() {changeDecisionButton("exclude")})
+    var $include_button = $("&lt;button>", {type: "button", class:"btn btn-outline-success btn-block button-adjust include"}).click(function() {changeDecisionButton("include")})
+    var $maybe_button = $("&lt;button>", {type: "button", class:"btn btn-outline-info btn-block button-adjust maybe"}).click(function() {changeDecisionButton("maybe")})
+    var $exclude_button = $("&lt;button>", {type: "button", class:"btn btn-outline-danger btn-block button-adjust exclude"}).click( function() {changeDecisionButton("exclude")})
     
     // create a new div and add the buttons to the div
-    var $optionbuttonsdiv = $("<div>", {id:"buttons", class:"collapse collapsingItem"}).append($include_button, $maybe_button, $exclude_button)
+    var $optionbuttonsdiv = $("&lt;div>", {id:"buttons", class:"collapse collapsingItem"}).append($include_button, $maybe_button, $exclude_button)
 
     // add the div to the column
     $td_buttons.append($decisionbutton, $optionbuttonsdiv)
@@ -87,17 +115,17 @@ function getDecisionButtonsColumn(){
 */
 function getNewTableRow(allpapers, i){
     // build the table row and add the stars to the first column in the row
-    var $tr = $("<tr>", {id: "foo", "class": "unselected", "data-toggle": 'collapse', "data-index": i, "data-target": ".collapsingItem" + i});
-    var $stars = $("<div>", {class: "rateYo"}).rateYo({ rating: allpapers[i]["rating"] }).rateYo("option", "starWidth", "20px");
-    var $td_rating = $("<td>").append($stars);
+    var $tr = $("&lt;tr>", {id: "foo", "class": "unselected", "data-toggle": 'collapse', "data-index": i, "data-target": ".collapsingItem" + i});
+    var $stars = $("&lt;div>", {class: "rateYo"}).rateYo({ rating: allpapers[i]["rating"] }).rateYo("option", "starWidth", "20px");
+    var $td_rating = $("&lt;td>").append($stars);
 
     // build the title and abstract and add them to the second column in the row
-    var $td_title_abstract = $("<td>", {id: "table-heading-abstract"})
+    var $td_title_abstract = $("&lt;td>", {id: "table-heading-abstract"})
 
     // title and abstract have to be built by string concatenation because the text color highlighting will not be tampered with this way 
     // (as opposed to trying to build the title and abstract using jquery functions)
-    var td_title = "<h5>" + allpapers[i]['title'] + "</h5>";
-    var div_abstract = "<div class='collapse collapsingItem'>" + allpapers[i]['abstract'] + "</div>"
+    var td_title = "&lt;h5>" + allpapers[i]['title'] + "&lt;/h5>";
+    var div_abstract = "&lt;div class='collapse collapsingItem'>" + allpapers[i]['abstract'] + "&lt;/div>"
     $td_title_abstract.append(td_title, div_abstract)
 
     // build the buttons for the decision in the third column in the row
@@ -120,7 +148,29 @@ function displayPapers(allpapers) {
 
     num_display_papers = Math.min(5, allpapers.length)
 
-    for (var i=0; i<num_display_papers; i++) {
+    for (var i=0; i&lt;num_display_papers; i++) {
         $("table tbody").append(getNewTableRow(allpapers, i));
     }
-};
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#changeDecisionButton">changeDecisionButton</a></li><li><a href="global.html#Decision">Decision</a></li><li><a href="global.html#displayPapers">displayPapers</a></li><li><a href="global.html#expandAccordian">expandAccordian</a></li><li><a href="global.html#getDecisionButtonsColumn">getDecisionButtonsColumn</a></li><li><a href="global.html#getNewTableRow">getNewTableRow</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Dec 07 2017 17:23:31 GMT+0200 (EET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
