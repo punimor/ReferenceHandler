@@ -16,15 +16,6 @@ function importFile(fileInput) {
     }
 }
 
-// Add the functionality to the upload file button in index.html
-window.onload = function() {
-  var fileInput = document.getElementById('fileInput');
-  fileInput.addEventListener('change', function(e) { 
-      var allpapers = importFile(fileInput);
-      displayPapers(allpapers);
-  });
-}
-
 function createDummyPapers() {
     var paper = {"rating": 3.0, 
          "title" : "Cardiovascular safety of new drugs for diabetes: Getting the balance right?", 
