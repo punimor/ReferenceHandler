@@ -1,0 +1,34 @@
+HTML classes and ids: underscore
+js variables: underscore
+functions: camelCase
+constants and globals: CAPITALS
+js classes: PascalCase
+js filenames: underscore
+js namespaces: PascalCase
+
+
+jsdoc: http://usejsdoc.org/about-getting-started.html
+  - comments start with capitol and end with period
+  - file and function descritions describe the functionality in passive tense
+    - ex. "Adds onclick functionality to DOM elements."
+
+place css files in <head>
+place javascript files right before </body>
+
+one space between function parens and opening curly bracket. i.e. var myfunction = function() { ... }
+
+use a "JavaScript Revealing Module Pattern". Read here: https://toddmotto.com/mastering-the-module-pattern/
+
+first line of js code should always be: 'use strict';
+
+private js variables/functions start with _
+
+order of namespace members: constants, private data, public functions, private functions
+
+all jsdoc comments start with capitol letter and end with period
+
+inline comments should generally be no longer than one sentance and thus should start with lowercase and end with no period
+
+always semicolon at end of statments
+
+use const whenever variable won't change.

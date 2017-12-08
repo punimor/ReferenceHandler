@@ -1,3 +1,10 @@
+/**
+    * @file Adds keyboard shortcuts to common operations.
+    * @author Josiah Coad/Filip Gnesin
+*/
+
+'use strict';
+
 $(document).on("keypress", function (e) {
         switch(e.which){
             case 116: // t pressed - open side menu
@@ -5,38 +12,38 @@ $(document).on("keypress", function (e) {
             break;
 
             case 105: // i pressed - choose include for currently selected aritcle
-                changeDecisionButton(Decision.INCLUDE)
+                PaperTableBuilder.changeDecisionButton(Decision.INCLUDE)
                 
                 if ($(".selected").next().length != 0){
-                    expandAccordian($(".selected").next())
+                    PaperTableBuilder.expandAccordian($(".selected").next())
                 }
             break;
 
             case 109: // m pressed - choose maybe for currently selected aritcle
-                changeDecisionButton(Decision.MAYBE)
+                PaperTableBuilder.changeDecisionButton(Decision.MAYBE)
                 
                 if ($(".selected").next().length != 0){
-                    expandAccordian($(".selected").next())
+                    PaperTableBuilder.expandAccordian($(".selected").next())
                 }
             break;
 
             case 101: // e pressed - choose exclude for currently selected aritcle
-                changeDecisionButton(Decision.EXCLUDE)
+                PaperTableBuilder.changeDecisionButton(Decision.EXCLUDE)
 
                 if ($(".selected").next().length != 0){
-                    expandAccordian($(".selected").next())
+                    PaperTableBuilder.expandAccordian($(".selected").next())
                 }
             break;
 
             case 106: // j pressed - select previous article
                 if ($(".selected").prev().length != 0){
-                    expandAccordian($(".selected").prev())
+                    PaperTableBuilder.expandAccordian($(".selected").prev())
                 }                    
             break;
 
             case 107: // k pressed - select next article
                 if ($(".selected").next().length != 0){
-                    expandAccordian($(".selected").next())
+                    PaperTableBuilder.expandAccordian($(".selected").next())
                 }
             break;
 

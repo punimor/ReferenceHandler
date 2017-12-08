@@ -1,3 +1,0 @@
-Metformin, MET
-Randomized, RCT, Randomly, random
-Diabetes, T2D
