@@ -1,0 +1,16 @@
+BUGS
+    - if you press k when the last article is already selected. you get 'Uncaught ReferenceError: allpapers is not defined'
+   
+TODO
+    - first article should already be selected when new file loaded
+    - make the file uploader better
+    - impliment namespaces (https://addyosmani.com/blog/essential-js-namespacing/)
+    - The current decision button should be taken from a property of the paper object (ie allpapers[i]['decision']). 
+    - Figure out why "data-target": ".collapsingItem" + i is neccessary in the function getNewTableRow
+    - finish the jsdoc for all remaining javascript documents
+    - Enforce indentation, naming conventions, proper use of const and var and semicolon standards for all remaining js
+    - clean the searchterms html/js
+    - automatic focus to currently selected cell
+    - make up/down arrows go through articles
+    - automatic scrolling (loading/unloading of papers to the screen when you scroll through)
+    - make all js docs adhere to this pattern: http://devnull.absolventa.de/2014/03/25/jsdoc-and-the-revealing-module-pattern/
