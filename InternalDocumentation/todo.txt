@@ -3,7 +3,6 @@ BUGS
    
 TODO
     - first article should already be selected when new file loaded
-    - make the file uploader better
     - impliment namespaces (https://addyosmani.com/blog/essential-js-namespacing/)
     - The current decision button should be taken from a property of the paper object (ie allpapers[i]['decision']). 
     - Figure out why "data-target": ".collapsingItem" + i is neccessary in the function getNewTableRow
@@ -14,3 +13,10 @@ TODO
     - make up/down arrows go through articles
     - automatic scrolling (loading/unloading of papers to the screen when you scroll through)
     - make all js docs adhere to this pattern: http://devnull.absolventa.de/2014/03/25/jsdoc-and-the-revealing-module-pattern/
+    - make file upload interface better: https://www.sitepoint.com/html5-file-drag-and-drop/ or https://blueimp.github.io/jQuery-File-Upload/basic.html
+    - figure out how to seperate displayPapers from importFile and analyze paper on server
+    - add jsdoc comments to file_importer
+    - set up better github pull requests tracking
+    - add automatic focusing to currently selected row in table
+    - add namespace and jsdoc for component_animater
+    - add a gitignore to ignore jsdoc and InternalDocumentation
