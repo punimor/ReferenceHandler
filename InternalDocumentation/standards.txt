@@ -32,3 +32,6 @@ inline comments should generally be no longer than one sentance and thus should 
 always semicolon at end of statments
 
 use const whenever variable won't change.
+
+use four spaces for indent (not tabs)
+

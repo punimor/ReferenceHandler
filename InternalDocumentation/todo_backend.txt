@@ -1,0 +1,6 @@
+    - change parser to output a pandas datafame
+    - standardize the scores (sklearn min/max): sklearn.preprocessing.MinMaxScaler(feature_range=(0, 1), copy=True)
+    - convert scorer to support regex...
+    - ... should add an "ignore case" checkbox to the 
+    - (frontend) add an import score-words option
+    - option for people to type regex

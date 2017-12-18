@@ -20,3 +20,5 @@ TODO
     - add automatic focusing to currently selected row in table
     - add namespace and jsdoc for component_animater
     - add a gitignore to ignore jsdoc and InternalDocumentation
+    - rename forlder WEbpages to Frontend and InternalDocumentation to InternalDoc
+    - add a cmd+? shortcut to show all shortcuts (similar to gmail)

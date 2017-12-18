@@ -81,9 +81,9 @@ var PaperTableBuilder = (function() {
         var $decisionbutton = $("<button>", {id: "decisionbutton", type:"button", class:"btn btn-outline-secondary btn-block undecide decisionbutt"})
 
         // create 3 operational buttons for choosing a new decision
-        var $include_button = $("<button>", {type: "button", class:"btn btn-outline-success btn-block button-adjust include"}).click(function() {changeDecisionButton("include")})
-        var $maybe_button = $("<button>", {type: "button", class:"btn btn-outline-info btn-block button-adjust maybe"}).click(function() {changeDecisionButton("maybe")})
-        var $exclude_button = $("<button>", {type: "button", class:"btn btn-outline-danger btn-block button-adjust exclude"}).click( function() {changeDecisionButton("exclude")})
+        var $include_button = $("<button>", {type: "button", class:"btn btn-outline-success btn-block button-adjust include"}).click(function() {changeDecisionButton(Decision.INCLUDE)})
+        var $maybe_button = $("<button>", {type: "button", class:"btn btn-outline-info btn-block button-adjust maybe"}).click(function() {changeDecisionButton(Decision.MAYBE)})
+        var $exclude_button = $("<button>", {type: "button", class:"btn btn-outline-danger btn-block button-adjust exclude"}).click( function() {changeDecisionButton(Decision.EXCLUDE)})
         
         // create a new div and add the buttons to the div
         var $optionbuttonsdiv = $("<div>", {id:"buttons", class:"collapse collapsingItem"}).append($include_button, $maybe_button, $exclude_button)
