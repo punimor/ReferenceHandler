@@ -4,13 +4,138 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
+/*font-family: 'Vollkorn', serif; - Mass Text
+font-family: 'Comfortaa', cursive; - Headers */
+
 body {
   overflow-x: hidden;
+  font-family: 'Comfortaa', cursive;
+}
+
+/*Color*/
+/*http://blog.visme.co/website-color-schemes/*/
+
+
+body {
+  background-color: #EAE7DC !important;
+  color: #8E8D8A;
+}
+
+tbody {
+  background-color: #E98074;
+}
+
+.table-borderless tbody tr {
+  border: none;
+  background-color: blue !important;
+}
+
+#table-heading-abstract {
+  background-color: #EAE7DC !important;
+
+}
+
+.div-container-fluid {
+  background-color: red !important;
+}
+
+tr {
+  background-color: #EAE7DC !important;
+}
+
+tr div .selected {
+  background-color: #EAE7DC !important;
+}
+
+tr {
+  border-bottom: red !important;
+  border-color: red !important;
+}
+
+tbody tr td {
+  border-top: 1px solid red;
+}
+
+.selected {
+  background-color: #EAE7DC !important;
+}
+
+#page-content-wrapper {
+  background-color: #EAE7DC !important;
+  color: #8E8D8A !important;
+}
+
+#sidebar-wrapper {
+  background-color: #8E8D8A !important;
+}
+
+.navbar {
+  background-color: #E85A4F !important;
+  /*color: red !important;*/
+}
+
+.col-4 {
+  color: #EAE7DC !important;
+}
+
+#navlink {
+  color: #EAE7DC !important;
+}
+
+.btn {
+  color: #EAE7DC;
+  /*background-color: #8E8D8A;*/
+}
+
+.td_buttons .btn {
+  color: #8E8D8A;
+}
+
+.btn-outline-danger {
+}
+
+.btn-outline-info {
+
+}
+
+.btn-outline-success {
+
+}
+
+.sidebar-nav li a {
+  color: #EAE7DC !important;
+}
+
+.sidebar-nav li a:hover {
+  background-color: #EAE7DC !important;
+  color: #8E8D8A !important;
+}
+
+/*Font*/
+#page-content-wrapper tbody {
+  font-family: 'Vollkorn', serif;
+}
+
+#page-content-wrapper tbody .btn{
+  font-family: 'Comfortaa', cursive;
+}
+
+#file-load{
+    background: transparent !important;
+    border: none !important;
+    height: 0px;
+    width: 0px;
+    font-size:0;
+}
+
+.togglemenu1 {
+  /*background-color: red;*/
 }
 
 #logo{
   width: 30px;
 }
+
 .jumbotron{
   background-image: url("https://i.ytimg.com/vi/njFz8UTGCTA/maxresdefault.jpg")
 }
@@ -86,6 +211,8 @@ body {
 
 #navlink{
   color: white;
+  font-family: 'Nixie One', cursive;
+  font-size: 20px;
 }
 /* slider */
 #slidecontainer {
@@ -125,7 +252,7 @@ body {
     opacity: 1; /* Fully shown on mouse-over */
 }
 
-/* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */ 
+/* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
