@@ -57,14 +57,13 @@ var PaperTableBuilder = (function() {
         * @param {PlainObject[]} all_papers - A list of Json objects, each representing papers for screening.
     */
     var displayPapers = function(all_papers) {
+        console.log("all_papers:" + all_papers);
         var max_pages_on_screen = 10;
         var num_display_papers = Math.min(max_pages_on_screen, all_papers.length)
 
         for (var i=0; i<num_display_papers; i++) {
             $("table tbody").append(_getNewTableRow(all_papers, i));
         }
-
-        expandAccordian($("table tbody").children()[0])
     }
 
     /**
