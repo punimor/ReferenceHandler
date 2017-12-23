@@ -12,39 +12,38 @@ body {
   font-family: 'Comfortaa', cursive;
 }
 
-/*Color*/
-/*http://blog.visme.co/website-color-schemes/*/
 
+/*Colors
+
+Floral White: #FFFAF0
+Rich Black (Fogra29): #00171F
+Prussian Blue: #003459
+Cerulean: #007EA7
+Vivid Cerulean: #00A8E8
+
+
+http://blog.visme.co/website-color-schemes/*/
 
 body {
-  background-color: #EAE7DC !important;
-  color: #8E8D8A;
+  background-color: #FFFAF0;
+  color: #00171F;
 }
 
 tbody {
-  background-color: #E98074;
-}
-
-.table-borderless tbody tr {
-  border: none;
-  background-color: blue !important;
+  background-color: #003459;
 }
 
 #table-heading-abstract {
-  background-color: #EAE7DC !important;
+  background-color: #FFFAF0 !important;
 
-}
-
-.div-container-fluid {
-  background-color: red !important;
 }
 
 tr {
-  background-color: #EAE7DC !important;
+  background-color: #FFFAF0 !important;
 }
 
 tr div .selected {
-  background-color: #EAE7DC !important;
+  background-color: #FFFAF0 !important;
 }
 
 tr {
@@ -57,38 +56,37 @@ tbody tr td {
 }
 
 .selected {
-  background-color: #EAE7DC !important;
+  background-color: #FFFAF0 !important;
 }
 
 #page-content-wrapper {
-  background-color: #EAE7DC !important;
-  color: #8E8D8A !important;
+  background-color: #FFFAF0 !important;
+  color: #00171F !important;
 }
 
 #sidebar-wrapper {
-  background-color: #8E8D8A !important;
+  background-color: #007EA7 !important;
 }
 
 .navbar {
-  background-color: #E85A4F !important;
-  /*color: red !important;*/
+  background-color: #003459 !important;
 }
 
 .col-4 {
-  color: #EAE7DC !important;
+  color: #FFFAF0 !important;
 }
 
 #navlink {
-  color: #EAE7DC !important;
+  color: #FFFAF0 !important;
 }
 
 .btn {
-  color: #EAE7DC;
+  color: #FFFAF0;
   /*background-color: #8E8D8A;*/
 }
 
 .td_buttons .btn {
-  color: #8E8D8A;
+  color: #00171F;
 }
 
 .btn-outline-danger {
@@ -103,12 +101,12 @@ tbody tr td {
 }
 
 .sidebar-nav li a {
-  color: #EAE7DC !important;
+  color: #FFFAF0 !important;
 }
 
 .sidebar-nav li a:hover {
-  background-color: #EAE7DC !important;
-  color: #8E8D8A !important;
+  background-color: #FFFAF0 !important;
+  color: #00171F !important;
 }
 
 /*Font*/
@@ -163,7 +161,7 @@ tbody tr td {
 }
 
 .include:before {
-  content: "Included";
+  content: "Include";
 }
 
 .maybe:before{
