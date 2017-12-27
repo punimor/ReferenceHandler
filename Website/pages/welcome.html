@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Use reVsearch to make medical research easy.">
+    <meta name="author" content="Filip Gnesin, Josiah Coad, Elisha Coad">
+    <meta name="keywords" content="medical, reVsearch, search" />
+
+    <title>reVsearch</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/index-css.css" rel="stylesheet">
+
+    <!-- rating stars csss-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+
+    <!-- Error - File Not Found -->
+    <!-- <script src="../javascript/import.js"></script> -->
+    <!-- <script src="../javascript/keyboardshortcuts.js"></script> -->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Reference Handler
+                    </a>
+                </li>
+                <li>
+                    <a href="welcome.html">Home</a>
+                </li>
+                <li>
+                    <a href="index.html">Screening</a>
+                </li>
+                <li>
+                    <a href="searchterms.html">Search terms</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Navbar-->
+        <nav class="navbar navbar-light bg-faded">
+            <div class="col-4">
+                <img src="../assets/logo.png" id="logo">
+                <a class="navbar-brand" href="welcome.html" id="navlink">Reference Handler</a>
+            </div>
+            <div id="poweredby" class="col-4">
+                Powered by Hygge Search
+            </div>
+            <div id="oxfordhack" class="col-4">
+                Oxford Hackathon 2017
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="jumbotron">
+                    <h1>Welcome to Reference Handler</h1>
+                    <p>Click the menu to start adding references</p>
+                    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+                </div>
+
+                <!-- Toggle menu -->
+                <a href="#menu-toggle" class="btn btn-secondary togglemenu1 d-none" id="menu-toggle">Toggle Menu</a>
+            </div>
+        </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../libraries/jquery/jquery.min.js"></script>
+    <script src="../libraries/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Star rating CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+
+    <!-- Custom styles -->
+    <link href="../css/index-css.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Reference Handler
+                    </a>
+                </li>
+                <li>
+                    <a href="welcome.html">Home</a>
+                </li>
+                <li>
+                    <a href="index.html">Screening</a>
+                </li>
+                <li>
+                    <a href="searchterms.html">Search terms</a>
+                </li>
+                <li>
+                    <input type="file" id="file-load">
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Navbar-->
+        <nav class="navbar navbar-light bg-faded">
+            <div class="col-4">
+                <img src="logo.png" id="logo">
+                <a class="navbar-brand" href="welcome.html" id="navlink">Reference Handler</a>
+            </div>
+            <div id="poweredby" class="col-4">
+                <!-- Powered by Hygge Search -->
+            </div>
+            <div id="oxfordhack" class="col-4">
+                Oxford Hackathon 2017
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h4 id="hometitle" class="">Reference Screening</h4>
+                <div data-children=".item">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Rating</th>
+                                <th>Reference</th>
+                                <th>Decision</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Toggle menu -->
+                <a href="#menu-toggle" class="btn btn-secondary togglemenu1" id="menu-toggle">Toggle Menu</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- _______________________
+                Javascript
+        ________________________ -->
+
+    <!-- Bootstrap and Jquery core js -->
+    <script src="../libraries/jquery/jquery.min.js"></script>
+    <script src="../libraries/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Star rating js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
+    <!-- Defines constants for global use. -->
+    <script src="../javascript/constants.js"></script>
+
+    <!-- Builds a new table row containing the title, abstract and buttons for a paper. -->
+    <script src="../javascript/paper_table_builder.js"></script>
+
+    <!-- Handles all functionality to do with uploading the file, sending it to the server and sending the server results to get rendered. -->
+    <script src="../javascript/file_importer.js"></script>
+
+    <!-- Adds keyboard shortcuts to common operations. -->
+    <script src="../javascript/keyboard_shortcuts.js"></script>
+
+    <!-- Adds onclick functionality to DOM elements (i.e. toggle side-menu). -->
+    <script src="../javascript/component_animater.js"></script>
+</body>
+
+</html>

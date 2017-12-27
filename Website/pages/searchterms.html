@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Star rating CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+
+    <!-- Custom styles -->
+    <link href="../css/index-css.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Reference Handler
+                    </a>
+                </li>
+                <li>
+                    <a href="welcome.html">Home</a>
+                </li>
+                <li>
+                    <a href="index.html">Screening</a>
+                </li>
+                <li>
+                    <a href="searchterms.html">Search terms</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <!-- Navbar-->
+        <nav class="navbar navbar-light bg-faded">
+            <div class="col-4">
+                <img src="logo.png" id="logo">
+                <a class="navbar-brand" href="welcome.html" id="navlink">Reference Handler</a>
+            </div>
+            <div id="poweredby" class="col-4">
+                <!-- Powered by Hygge Search -->
+            </div>
+            <div id="oxfordhack" class="col-4">
+                Oxford Hackathon 2017
+            </div>
+        </nav>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h4>Search Terms</h4>
+
+                <table id="SearchTermTable" class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Search term</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody id="SearchTermTableBody">
+                        <tr class="item" id="new-term-template">
+                            <!-- searchterm1 -->
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="formGroupSearchTerm1" placeholder="Add search term">
+                                </div>
+                            </td>
+                            <!-- rating1 -->
+                            <td>
+                                <div id="slidecontainer">
+                                    <input type="range" min="-5" max="5" value="0" class="slider" id="myRange">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Toggle Menu -->
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+
+                <!-- Add Search Term -->
+                <a class="btn btn-secondary" id="submit-search">Submit search</a>
+
+                <!-- Add Search Term -->
+                <a class="btn btn-secondary" id="add-search-term">Add search term</a>
+
+                <!-- Delete Search Term -->
+                <a class="btn btn-secondary" id="delete-search-term">Delete search term</a>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap jQuery core js -->
+    <script src="../libraries/jquery/jquery.min.js"></script>
+    <script src="../libraries/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../javascript/searchterms.js"></script>
+
+    <!-- Custom js -->
+    <script type="text/javascript">
+        function download(filename, text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+        }
+
+        $("#submit-search").click(function (e) {
+            var preferredWords = []
+            $("#SearchTermTable tr.item").each(function () {
+                keywords = $(this).find(".form-control").val()
+                rating = $(this).find(".slider").val()
+                /// ...
+                console.log(keywords);
+                console.log(rating);
+                preferredWords.push([rating + "," + keywords])
+            });
+            var text = preferredWords.join("\n")
+            var filename = "preferences.txt";
+            download(filename, text);
+        });
+
+
+    </script>
+</body>
+
+</html>
