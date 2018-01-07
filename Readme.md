@@ -35,3 +35,6 @@ Storage Backend
 
 Account Backend
   - User accounts (login)
+
+## Naming Convention
+- Folders and Filenames: all lowercase with dashes where needed for readability
